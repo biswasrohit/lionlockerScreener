@@ -1,5 +1,6 @@
 import "server-only";
 import { cookies } from "next/headers";
+import { connection } from "next/server";
 import { requireEnv } from "./env";
 import { RESULTS_COOKIE, RESULTS_COOKIE_MAX_AGE_SEC, createToken, verifyToken } from "./auth-token";
 
@@ -7,6 +8,8 @@ export const RESULTS_COOKIE_PATH = "/results";
 
 export async function isResultsAuthed(): Promise<boolean> {
   const token = (await cookies()).get(RESULTS_COOKIE)?.value;
+  // The expiry check reads the clock, which must happen per request.
+  await connection();
   return verifyToken(requireEnv("RESULTS_PASSWORD"), token, Date.now());
 }
 
