@@ -192,3 +192,7 @@
   color: var(--warn-ink);
   font-size: 0.78rem;
 }
+
+.scenarioCell {
+  min-width: 150px;
+}

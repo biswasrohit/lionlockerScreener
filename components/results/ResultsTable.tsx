@@ -41,7 +41,9 @@ function ConditionCells({
 
   return (
     <>
-      <td className={styles.groupStart}>{task ? SCENARIOS[task.scenario].title : ""}</td>
+      <td className={`${styles.groupStart} ${styles.scenarioCell}`}>
+        {task ? SCENARIOS[task.scenario].title : ""}
+      </td>
       <td className={styles.mono}>
         {finished && task ? (
           task.gave_up ? (

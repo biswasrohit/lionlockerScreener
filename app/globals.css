@@ -532,7 +532,8 @@ a {
   position: sticky;
   top: 0;
   z-index: 2;
-  background: var(--paper);
+  background: var(--surface);
+  border-bottom: 1px solid var(--line);
   padding: 10px 0;
   margin: -10px 0 0;
 }
