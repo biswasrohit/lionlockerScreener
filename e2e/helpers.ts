@@ -33,7 +33,7 @@ export async function clickAndSave(page: Page, buttonName: string) {
 
 export async function expectNoEmDashes(page: Page) {
   const text = await page.locator("body").innerText();
-  expect(text).not.toContain("—");
+  expect(text).not.toContain(String.fromCharCode(0x2014));
 }
 
 export async function loginToResults(page: Page, password: string) {

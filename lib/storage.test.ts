@@ -39,7 +39,7 @@ describe("labels", () => {
 describe("storage copy", () => {
   it("never uses em dashes", () => {
     const text = JSON.stringify(STORAGE_CARDS);
-    expect(text).not.toContain("—");
+    expect(text).not.toContain(String.fromCharCode(0x2014));
   });
 
   it("links only to columbia.edu sources over https", () => {
