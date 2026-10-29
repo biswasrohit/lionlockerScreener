@@ -1,7 +1,6 @@
 import "server-only";
 
-const REQUIRED = ["SUPABASE_URL", "SUPABASE_SERVICE_ROLE_KEY", "RESULTS_PASSWORD"] as const;
-type EnvName = (typeof REQUIRED)[number];
+type EnvName = "SUPABASE_URL" | "SUPABASE_SERVICE_ROLE_KEY" | "RESULTS_PASSWORD";
 
 /** Reads a required server env var, failing loudly with the name if it's missing. */
 export function requireEnv(name: EnvName): string {
